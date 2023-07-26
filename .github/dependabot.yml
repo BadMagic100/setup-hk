@@ -12,3 +12,9 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-minor", "version-update:semver-patch"]
+    groups:
+      patterns:
+        - "eslint"
+        - "eslint-plugin-jest"
+        - "@typescript-eslint/parser"
+        - "@typescript-eslint/eslint-plugin"

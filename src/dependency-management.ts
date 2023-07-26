@@ -8,10 +8,13 @@ function toLookup<K extends keyof any, V>(
   values: V[],
   keySelector: (val: V) => K,
 ): Record<K, V> {
-  return values.reduce((map, val) => {
-    map[keySelector(val)] = val;
-    return map;
-  }, {} as Record<K, V>);
+  return values.reduce(
+    (map, val) => {
+      map[keySelector(val)] = val;
+      return map;
+    },
+    {} as Record<K, V>,
+  );
 }
 
 /**

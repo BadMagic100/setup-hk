@@ -21,7 +21,7 @@ function isSingleLink(link: LinkData | MultiplatformLinks): link is LinkData {
 }
 
 const allowedExtensions = ['.dll', '.zip'] as const;
-type ModFileType = typeof allowedExtensions[number];
+type ModFileType = (typeof allowedExtensions)[number];
 
 function readonlyIncludes<T extends U, U>(
   list: readonly T[],
