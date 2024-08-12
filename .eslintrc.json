@@ -13,7 +13,7 @@
       "import/no-namespace": "off",
       "no-unused-vars": "off",
       "camelcase": "off",
-      "semi": "off",
+      "semi": "off"
     },
     "env": {
       "node": true,
