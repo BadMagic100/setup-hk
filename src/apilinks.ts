@@ -21,19 +21,19 @@ const vanillaLinks: ApiManifest = {
   Version: 1.5,
   Links: {
     Windows: {
-      $value: 'https://files.catbox.moe/i4sdl6.zip',
+      $value: 'https://files.hk-modding.org/managed-windows.zip',
       __SHA256:
-        '15dbd6a5668c722c9b1e585b944756063a7f4b41f9c0e161a3c7649f1d3ab08e',
+        'dbb57a9978dec8253803cc04a97842e1ee239f29365edcabb7822298f49d2619',
     },
     Linux: {
-      $value: 'https://files.catbox.moe/j85bvb.zip',
+      $value: 'https://files.hk-modding.org/managed-linux.zip',
       __SHA256:
-        'febb2350fb19ab6ec594f9994bd6854d16f5e8f8b30008571e43c082bbd7eef7',
+        'bfdb303bba98b982b4a7593b63ed1db4570d3e429899bdebcee7038b000b954a',
     },
     Mac: {
-      $value: 'https://files.catbox.moe/j8fyro.zip',
+      $value: 'https://files.hk-modding.org/managed-macos.zip',
       __SHA256:
-        '48a038fb88d7a85b4f92d1c879ef5478d3734f440cf99aae0d6d5013148feb00',
+        '17a45bbc570945fdc4b3e445099ee242e7490fd7bac57cd7439e220ce41f942c',
     },
   },
   // not actually used currently, just a placeholder for the moment
