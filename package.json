@@ -13,7 +13,6 @@
     "lint": "eslint src/**/*.ts",
     "package": "ncc build --source-map --license licenses.txt",
     "test": "jest",
-    "schema-gen": "xsd-ts local-schema/apilinks.xsd src/schema/apilinks.ts && xsd-ts local-schema/modlinks.xsd src/schema/modlinks.ts",
     "all": "npm run build && npm run format && npm run lint && npm run package && npm test"
   },
   "repository": {
@@ -34,19 +33,21 @@
     "queue-typescript": "^1.0.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.22.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.10",
-    "@typescript-eslint/eslint-plugin": "^8.26.1",
-    "@typescript-eslint/parser": "^8.26.1",
     "@vercel/ncc": "^0.38.3",
-    "eslint": "^8.57.1",
+    "eslint": "^9.22.0",
+    "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-jest": "^28.11.0",
+    "eslint-plugin-prettier": "^5.2.3",
     "husky": "^9.1.7",
     "jest": "^29.7.0",
     "js-yaml": "^4.1.0",
     "prettier": "^3.5.3",
     "rimraf": "^6.0.1",
     "ts-jest": "^29.2.6",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.1"
   }
 }

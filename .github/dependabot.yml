@@ -18,5 +18,6 @@ updates:
         patterns:
           - "eslint"
           - "eslint-plugin-jest"
-          - "@typescript-eslint/parser"
-          - "@typescript-eslint/eslint-plugin"
+          - "eslint-plugin-prettier"
+          - "eslint-config-prettier"
+          - "typescript-eslint"
