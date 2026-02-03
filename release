@@ -18,7 +18,6 @@ set -e
 # 2. Display the latest release tag
 # 3. Prompt the user for a new release tag
 # 4. Validate the new release tag
-# 5. Remind user to update the version field in package.json
 # 6. Tag a new release
 # 7. Set 'is_major_release' variable
 # 8. Point separate major release tag (e.g. v1, v2) to the new release
@@ -67,16 +66,6 @@ else
 	exit 1
 fi
 
-# 5. Remind user to update the version field in package.json
-echo -e -n "Make sure the version field in package.json is ${BOLD_BLUE}$new_tag${OFF}. Yes? [Y/${BOLD_UNDERLINED}n${OFF}] "
-read -r YN
-
-if [[ ! ($YN == "y" || $YN == "Y") ]]; then
-	# Package.json version field is not up to date
-	echo -e "Please update the package.json version to ${BOLD_PURPLE}$new_tag${OFF} and commit your changes"
-	exit 1
-fi
-
 # 6. Tag a new release
 git tag "$new_tag" --annotate --message "$new_tag Release"
 echo -e "Tagged: ${BOLD_GREEN}$new_tag${OFF}"
@@ -121,12 +110,12 @@ else
 	echo -e "Tags: ${BOLD_GREEN}$latest_major_release_tag${OFF} and ${BOLD_GREEN}$new_tag${OFF} pushed to remote"
 fi
 
-# 10. If this is a major release, create a 'releases/v#' branch and push
+# 10. If this is a major release, create a 'releases/v#' maintenance branch off the previous release and push
 if [ $is_major_release = 'yes' ]; then
-	git branch "releases/$new_major_release_tag" "$new_major_release_tag"
-	echo -e "Branch: ${BOLD_BLUE}releases/$new_major_release_tag${OFF} created from ${BOLD_BLUE}$new_major_release_tag${OFF} tag"
-	git push --set-upstream $git_remote "releases/$new_major_release_tag"
-	echo -e "Branch: ${BOLD_GREEN}releases/$new_major_release_tag${OFF} pushed to remote"
+	git branch "releases/$latest_major_release_tag" "$latest_tag"
+	echo -e "Branch: ${BOLD_BLUE}releases/$latest_major_release_tag${OFF} created from ${BOLD_BLUE}$latest_tag${OFF} tag"
+	git push --set-upstream $git_remote "releases/$latest_major_release_tag"
+	echo -e "Branch: ${BOLD_GREEN}releases/$latest_major_release_tag${OFF} pushed to remote"
 fi
 
 # Completed
