@@ -31,9 +31,9 @@
   "author": "BadMagic100",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^2.0.3",
-    "@actions/io": "^2.0.0",
-    "@actions/tool-cache": "^3.0.1",
+    "@actions/core": "^3.0.0",
+    "@actions/io": "^3.0.2",
+    "@actions/tool-cache": "^4.0.0",
     "fast-xml-parser": "^5.3.4",
     "queue-typescript": "^1.0.1"
   },
