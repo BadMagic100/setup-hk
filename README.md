@@ -1,6 +1,6 @@
 ## setup-hk
 
-![test status](https://github.com/BadMagic100/setup-hk/workflows/build-test/badge.svg?branch=main)
+![test status](https://github.com/BadMagic100/setup-hk/actions/workflows/test.yml/badge.svg?branch=main)
 
 setup-hk is a simple action to set up the Hollow Knight Modding API and any dependencies you may have on other mods. These
 will be fetched from https://github.com/hk-modding/modlinks unless otherwise specified.
