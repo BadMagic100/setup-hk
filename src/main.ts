@@ -5,13 +5,13 @@ import {
   getApiLinksManifest,
   tryDownloadApiManifest,
   tryDownloadVanilla,
-} from './apilinks';
-import { resolveDependencyTree } from './dependency-management';
-import { getModLinksManifests, tryDownloadModManifest } from './modlinks';
-import { parseApiLinks, parseModLinks } from './xml-util';
-import { parse } from './mod-dependencies';
+} from './apilinks.js';
+import { resolveDependencyTree } from './dependency-management.js';
+import { getModLinksManifests, tryDownloadModManifest } from './modlinks.js';
+import { parseApiLinks, parseModLinks } from './xml-util.js';
+import { parse } from './mod-dependencies.js';
 
-async function run(): Promise<void> {
+export async function run(): Promise<void> {
   try {
     const installPath = core.getInput('apiPath');
     const dependencyFilePath = core.getInput('dependencyFilePath');
@@ -70,5 +70,3 @@ async function run(): Promise<void> {
     }
   }
 }
-
-run();

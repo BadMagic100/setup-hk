@@ -3,12 +3,12 @@ import {
   DownloadSuccess,
   LinkData,
   MultiplatformLinks,
-} from './links-processing';
+} from './links-processing.js';
 import * as core from '@actions/core';
 import * as io from '@actions/io';
 import * as tc from '@actions/tool-cache';
 import path from 'path';
-import { ModDependency } from './mod-dependencies';
+import { ModDependency } from './mod-dependencies.js';
 
 interface ModLinksSchema {
   ModLinks: {

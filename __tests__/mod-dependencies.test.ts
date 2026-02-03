@@ -1,14 +1,15 @@
-import { ModDependency, parse } from '../src/mod-dependencies';
-import { readFile } from 'fs/promises';
+import type { ModDependency } from '../src/mod-dependencies.js';
+import { readFile as readFileMock } from '../__fixtures__/fsPromises.js';
 
 import { test, expect, jest } from '@jest/globals';
 
-jest.mock('fs/promises');
+jest.unstable_mockModule('fs/promises', () => ({ readFile: readFileMock }));
 
-const readFileMock = readFile as jest.MockedFunction<typeof readFile>;
+const { parse } = await import('../src/mod-dependencies.js');
+
 const filePlaceholder = 'ModDependencies.txt';
 
-beforeEach(() => {
+afterEach(() => {
   readFileMock.mockClear();
 });
 

@@ -1,4 +1,4 @@
-import { downloadLink, MultiplatformLinks } from './links-processing';
+import { downloadLink, MultiplatformLinks } from './links-processing.js';
 import * as core from '@actions/core';
 import * as tc from '@actions/tool-cache';
 import * as io from '@actions/io';

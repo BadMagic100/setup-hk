@@ -1,17 +1,20 @@
 // @ts-check
 
 import eslint from '@eslint/js';
+import { defineConfig } from 'eslint/config';
 import globals from 'globals';
-import tseslint, { config } from 'typescript-eslint';
+import tseslint from 'typescript-eslint';
 import pluginJest from 'eslint-plugin-jest';
 import configPrettier from 'eslint-plugin-prettier/recommended';
 
-export default tseslint.config(
+export default defineConfig(
+  {
+    ignores: ['**/dist/', '**/lib/', '**/node_modules/'],
+  },
   eslint.configs.recommended,
   tseslint.configs.recommended,
   {
     files: ['**/*.ts', '**/*.js'],
-    ignores: ['dist/', 'lib/', 'node_modules/'],
     languageOptions: { globals: { ...globals.node }, ecmaVersion: 'latest' },
   },
   {

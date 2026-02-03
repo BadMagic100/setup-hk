@@ -1,16 +1,15 @@
-import { parseApiLinks, parseModLinks } from '../src/xml-util';
-import { downloadTool } from '@actions/tool-cache';
-import { readFile } from 'fs/promises';
+import { downloadTool as downloadToolMock } from '../__fixtures__/tool-cache.js';
+import { readFile as readFileMock } from '../__fixtures__/fsPromises.js';
 
 import { test, expect, jest } from '@jest/globals';
 
-jest.mock('@actions/tool-cache');
-jest.mock('fs/promises');
+jest.unstable_mockModule('@actions/tool-cache', () => ({
+  downloadTool: downloadToolMock,
+}));
+jest.unstable_mockModule('fs/promises', () => ({ readFile: readFileMock }));
 
-const downloadToolMock = downloadTool as jest.MockedFunction<
-  typeof downloadTool
->;
-const readFileMock = readFile as jest.MockedFunction<typeof readFile>;
+// import of the module under test must happen dynamically and last, so that mocks can happen
+const { parseApiLinks, parseModLinks } = await import('../src/xml-util.js');
 
 const apiLinksSimplest = `
 <?xml version="1.0"?>
@@ -115,10 +114,12 @@ const modLinksMultipleManifests = `
 </ModLinks>`;
 
 beforeEach(() => {
+  downloadToolMock.mockResolvedValue('tmp/asdf.zip');
+});
+
+afterEach(() => {
   downloadToolMock.mockClear();
   readFileMock.mockClear();
-
-  downloadToolMock.mockResolvedValue('tmp/asdf.zip');
 });
 
 test('parses minimal API links', async () => {

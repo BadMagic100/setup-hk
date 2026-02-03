@@ -1,7 +1,7 @@
 import { Queue } from 'queue-typescript';
-import { ModManifest } from './modlinks';
+import { ModManifest } from './modlinks.js';
 import * as core from '@actions/core';
-import { ModDependency } from './mod-dependencies';
+import { ModDependency } from './mod-dependencies.js';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function toLookup<K extends keyof any, V>(
