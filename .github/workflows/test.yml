@@ -28,6 +28,7 @@ jobs:
         with:
           apiPath: API/
       - name: Cleanup
+        shell: bash
         run: rm -rf API
       - name: Test with deps
         uses: ./
