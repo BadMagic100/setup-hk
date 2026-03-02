@@ -34,7 +34,7 @@
     "@actions/core": "^3.0.0",
     "@actions/io": "^3.0.2",
     "@actions/tool-cache": "^4.0.0",
-    "fast-xml-parser": "^5.3.4",
+    "fast-xml-parser": "^5.4.1",
     "queue-typescript": "^1.0.1"
   },
   "devDependencies": {
