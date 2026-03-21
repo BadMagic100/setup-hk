@@ -10,6 +10,8 @@
     "noImplicitAny": true,
     "esModuleInterop": true,
     "isolatedModules": true,
+    // added due to issue with fast-xml-parser
+    "skipLibCheck": true,
     "newLine": "lf"
   },
   "exclude": ["node_modules", "__tests__", "__fixtures__", "dist"]
