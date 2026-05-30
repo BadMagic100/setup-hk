@@ -14,7 +14,12 @@ const parser = new XMLParser({
   ignoreAttributes: false,
   attributeNamePrefix: '__',
   textNodeName: '$value',
-  isArray: (_, jpath) => alwaysArray.includes(jpath),
+  isArray: (_, jPathOrMatcher) =>
+    alwaysArray.includes(
+      typeof jPathOrMatcher === 'string'
+        ? jPathOrMatcher
+        : jPathOrMatcher.toString(),
+    ),
 });
 
 async function downloadAndParseXml(link: string): Promise<unknown> {
