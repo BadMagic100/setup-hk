@@ -22,3 +22,7 @@ updates:
           - "eslint-plugin-prettier"
           - "eslint-config-prettier"
           - "typescript-eslint"
+      rollup:
+        patterns:
+          - "rollup"
+          - "@rollup/*"
