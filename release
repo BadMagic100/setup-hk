@@ -118,5 +118,9 @@ if [ $is_major_release = 'yes' ]; then
 	echo -e "Branch: ${BOLD_GREEN}releases/$latest_major_release_tag${OFF} pushed to remote"
 fi
 
+# 11. Publish release
+gh release create $new_tag --generate-notes --verify-tag --latest
+echo -e "Release ${BOLD_GREEN}$new_tag${OFF} created, make sure to edit the release to publish to marketplace"
+
 # Completed
 echo -e "${BOLD_GREEN}Done!${OFF}"
